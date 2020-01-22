@@ -8,7 +8,9 @@ class ProductRoutes {
     routes(app) {
         app.route("/v1/products").get(this.productController.index);
         app.route("/v1/product").post(this.productController.create);
-        app.route("/v1/product").put(this.productController.update);
+        app.route("/v1/product/:id").get(this.productController.get);
+        app.route("/v1/product/:id").put(this.productController.update);
+        //app.route("/v1/product/:id").put(this.productController.delete);
     }
 }
 exports.ProductRoutes = ProductRoutes;
