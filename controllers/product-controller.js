@@ -16,17 +16,34 @@ class ProductController {
     update(req, res) {
         const productId = req.params.id;
         const params = req.body;
-        const update = {
+        const updateOpt = {
             where: { id: productId },
             returning: true,
             limit: 1
         };
-        product_1.Product.update(params, update)
+        product_1.Product.update(params, updateOpt)
             // Updated record is only returned in Progress.
             //.then((result: [number, Array<Product>]) => {
             .then((result) => {
             if (result[1] == 1) {
-                res.status(200).json({ data: result[1] });
+                res.status(200).json({ result: "Update succeded" });
+            }
+            else {
+                res.status(404).json({ errors: ["Product not found"] });
+            }
+        })
+            .catch((err) => res.status(500).json(err));
+    }
+    delete(req, res) {
+        const productId = req.params.id;
+        const deleteOpt = {
+            where: { id: productId },
+            limit: 1
+        };
+        product_1.Product.destroy(deleteOpt)
+            .then((result) => {
+            if (result == 1) {
+                res.status(200).json({ result: "Delete succeded" });
             }
             else {
                 res.status(404).json({ errors: ["Product not found"] });

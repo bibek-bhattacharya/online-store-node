@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { Product, ProductInterface } from "../models/product";
-import {UpdateOptions} from "sequelize";
+import {UpdateOptions, DestroyOptions} from "sequelize";
 
 export class ProductController {
 
@@ -22,18 +22,38 @@ export class ProductController {
     const productId: string = req.params.id;
     const params: ProductInterface = req.body;
 
-    const update: UpdateOptions = {
+    const updateOpt: UpdateOptions = {
       where: { id: productId },
       returning: true,
       limit : 1
     };
 
-    Product.update(params, update)
+    Product.update(params, updateOpt)
     // Updated record is only returned in Progress.
     //.then((result: [number, Array<Product>]) => {
     .then((result: any) => {
       if (result[1] == 1) {
-        res.status(200).json({ data: result[1]});
+        res.status(200).json({ result: "Update succeded" });
+      }
+      else {
+        res.status(404).json({errors: ["Product not found"] });
+      }
+    })
+    .catch((err: Error) => res.status(500).json(err));
+  }
+
+  public delete(req: Request, res: Response) {
+    const productId: string = req.params.id;
+
+    const deleteOpt: DestroyOptions = {
+      where: { id: productId },
+      limit : 1
+    };
+
+    Product.destroy(deleteOpt)
+    .then((result: number) => {
+      if (result == 1) {
+        res.status(200).json({ result: "Delete succeded" });
       }
       else {
         res.status(404).json({errors: ["Product not found"] });
