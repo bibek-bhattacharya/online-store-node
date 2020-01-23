@@ -20,9 +20,12 @@ npm install nodemon --save-dev
 
 npm install --save sequelize sqlite3
 
-$ npm install --save-dev @types/bluebird @types/validator @types/sequelize
+npm install --save-dev @types/bluebird @types/validator @types/sequelize
 
 // To run app
 
-node index.js
+node src\index.js
 
+npm install mocha chai supertest --save-dev
+
+​​​​​​​npm install -D @types/node @types/mocha @types/express @types/chai @types/supertest --save-dev
