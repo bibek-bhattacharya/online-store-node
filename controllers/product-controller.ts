@@ -29,7 +29,7 @@ export class ProductController {
     };
 
     Product.update(params, updateOpt)
-    // Updated record is only returned in Progress.
+    // Updated record is only returned in Postgres.
     //.then((result: [number, Array<Product>]) => {
     .then((result: any) => {
       if (result[1] == 1) {
