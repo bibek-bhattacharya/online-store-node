@@ -24,5 +24,5 @@ Product.init({
     sequelize: database_1.database // this bit is important
 });
 // force : false => Do not overwrite the database if exists.
-Product.sync({ force: false }).then(() => console.log("Products table created"));
+Product.sync({ force: false }).then(() => console.log("Connected to database"));
 //# sourceMappingURL=product.js.map

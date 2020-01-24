@@ -4,6 +4,7 @@ const sequelize_1 = require("sequelize");
 exports.database = new sequelize_1.Sequelize({
     database: "products_db",
     dialect: "sqlite",
-    storage: "data/db.sqlite"
+    storage: "data/db.sqlite",
+    logging: false
 });
 //# sourceMappingURL=database.js.map
