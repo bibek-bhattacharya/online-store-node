@@ -1,38 +1,38 @@
 # Instructions to build and run
 
-Open command prompt at online-store-node folder level
+**Open command prompt at online-store-node folder level**
 
 ****************************************************************************
-Install NodeJS and Typescript dependencies
+**Install NodeJS and Typescript dependencies**
 
 npm install
 
 ****************************************************************************
 
-Run REST API service
+**Run REST API service**
 
 node src\index.js
 
 ****************************************************************************
 
-Run tests
+**Run tests**
 
 npm run test
 
 ****************************************************************************
-Postman
+**Postman**
 
 Base URL: http://localhost:5000/v1
 
 ****************************************************************************
 
-Swagger/OpenAPI Documentation
+**Swagger/OpenAPI Documentation**
 
 http://localhost:5000/v1/swagger/
 
 ****************************************************************************
 
-Run as Docker container
+**Run as Docker container**
 
 docker build -t online-store-node:latest .
 
