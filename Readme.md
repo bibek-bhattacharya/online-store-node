@@ -29,3 +29,7 @@ node src\index.js
 npm install mocha chai supertest --save-dev
 
 ​​​​​​​npm install -D @types/node @types/mocha @types/express @types/chai @types/supertest --save-dev
+
+docker build -t online-store-node:latest .
+
+docker run -p 5000:5000 -d online-store-node
