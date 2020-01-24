@@ -1,35 +1,39 @@
-npm init
+# Instructions to build and run
 
-npm install express --save
+Open command prompt at online-store-node folder level
 
-npm install @types/express --save-dev
+****************************************************************************
+Install NodeJS and Typescript dependencies
 
-// install typescript globally, we can use tsc command directly
+npm install
 
-npm install typescript --save-dev
+****************************************************************************
 
-npm install -g typescript
-
-Using nodemon - Automatically detects file changes in your directory and restarts the server without any manual intervention
-
-npm install ts-node --save-dev
-
-// server restart whenever there is a change
-npm install nodemon --save-dev
-
-
-npm install --save sequelize sqlite3
-
-npm install --save-dev @types/bluebird @types/validator @types/sequelize
-
-// To run app
+Run REST API service
 
 node src\index.js
 
-npm install mocha chai supertest --save-dev
+****************************************************************************
 
-​​​​​​​npm install -D @types/node @types/mocha @types/express @types/chai @types/supertest --save-dev
+Run tests
+
+npm run test
+
+****************************************************************************
+Postman
+
+Base URL: http://localhost:5000/v1
+
+****************************************************************************
+
+Swagger/OpenAPI Documentation
+
+http://localhost:5000/v1/swagger/
+
+****************************************************************************
+
+Run as Docker container
 
 docker build -t online-store-node:latest .
 
-docker run -p 5000:5000 -d online-store-node
+docker run -d -p 5000:5000 online-store-node
