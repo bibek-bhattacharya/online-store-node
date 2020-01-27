@@ -8,7 +8,11 @@ exports.Product = Product;
 Product.init({
     id: {
         type: sequelize_1.DataTypes.INTEGER,
-        autoIncrement: true,
+        // Note: To get the same Id on INSERT followed by a DELETE consistently, do not use autoIncrement.
+        // autoIncrement: true,
+        // On an INSERT, if the INTEGER PRIMARY KEY column is not explicitly given a value, then it will be filled automatically with an unused integer.
+        // This is true regardless of whether or not the AUTOINCREMENT keyword is used.
+        // If the AUTOINCREMENT keyword appears after INTEGER PRIMARY KEY, it prevents the reuse of ROWIDs from previously deleted rows.
         primaryKey: true
     },
     name: {
